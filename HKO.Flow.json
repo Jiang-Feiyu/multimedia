@@ -1,0 +1,478 @@
+[
+    {
+        "id": "37f0ccf6.6b71cc",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "ecc26120.5c01a8",
+        "type": "mongodb3",
+        "z": "",
+        "uri": "mongodb://localhost:27017",
+        "name": "HKO",
+        "options": "",
+        "parallelism": "-1"
+    },
+    {
+        "id": "e9f24978.c8dae8",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-dark",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "customTheme": {
+                "name": "HKSTP",
+                "default": "#4B7930",
+                "baseColor": "#371a95",
+                "baseFont": "Arial,Arial,Helvetica,sans-serif",
+                "reset": false
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#097479",
+                    "value": "#097479",
+                    "edited": true
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#097479",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#111111",
+                    "edited": true
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#000000",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#0eb8c0",
+                    "edited": true
+                },
+                "group-borderColor": {
+                    "value": "#555555",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#333333",
+                    "edited": true
+                },
+                "widget-textColor": {
+                    "value": "#eeeeee",
+                    "edited": true
+                },
+                "widget-backgroundColor": {
+                    "value": "#097479",
+                    "edited": true
+                },
+                "widget-borderColor": {
+                    "value": "#333333",
+                    "edited": true
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "6f24792a.43aac",
+        "type": "ui_tab",
+        "z": "",
+        "name": "Temperature",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "4921adae.55bbbc",
+        "type": "ui_group",
+        "z": "",
+        "name": "Temperature",
+        "tab": "6f24792a.43aac",
+        "disp": true,
+        "width": "12",
+        "collapse": false
+    },
+    {
+        "id": "d629c8e.14838b8",
+        "type": "mongodb3 in",
+        "z": "37f0ccf6.6b71cc",
+        "service": "_ext_",
+        "configNode": "ecc26120.5c01a8",
+        "name": "",
+        "collection": "Weather Report",
+        "operation": "insert",
+        "x": 509,
+        "y": 269,
+        "wires": [
+            [
+                "9dc0f977.50d88"
+            ]
+        ]
+    },
+    {
+        "id": "19d727d7.21581",
+        "type": "mongodb3 in",
+        "z": "37f0ccf6.6b71cc",
+        "service": "_ext_",
+        "configNode": "ecc26120.5c01a8",
+        "name": "HKO Retrieve Last Record",
+        "collection": "Weather Report",
+        "operation": "findOne",
+        "x": 452,
+        "y": 54,
+        "wires": [
+            [
+                "6d5ebae.c730a44"
+            ]
+        ]
+    },
+    {
+        "id": "a8def012.10bd28",
+        "type": "inject",
+        "z": "37f0ccf6.6b71cc",
+        "name": "",
+        "topic": "Timer",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "300",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "1",
+        "x": 166,
+        "y": 54,
+        "wires": [
+            [
+                "4b3d2bc4.9c2efc"
+            ]
+        ]
+    },
+    {
+        "id": "4b3d2bc4.9c2efc",
+        "type": "function",
+        "z": "37f0ccf6.6b71cc",
+        "name": "Retrieve Last Record Query",
+        "func": "msg.payload = [\n    {\n        \"$query\": {}\n    },\n    {\n        \"sort\": {\n            \"_id\": -1\n        }\n    }\n]\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 310,
+        "y": 121,
+        "wires": [
+            [
+                "19d727d7.21581"
+            ]
+        ]
+    },
+    {
+        "id": "6d5ebae.c730a44",
+        "type": "function",
+        "z": "37f0ccf6.6b71cc",
+        "name": "Get Last updateTime",
+        "func": "if(msg.payload.hasOwnProperty('updateTime')) {\n    flow.set('lastUpdateTime', msg.payload.updateTime);\n} else {\n    flow.set('lastUpdateTime', \"\");\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 608,
+        "y": 121,
+        "wires": [
+            [
+                "6f781e37.85c0d"
+            ]
+        ]
+    },
+    {
+        "id": "6f781e37.85c0d",
+        "type": "http request",
+        "z": "37f0ccf6.6b71cc",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": false,
+        "url": "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=en",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "x": 261,
+        "y": 177,
+        "wires": [
+            [
+                "5f5d97d3.b9eda8"
+            ]
+        ]
+    },
+    {
+        "id": "5f5d97d3.b9eda8",
+        "type": "json",
+        "z": "37f0ccf6.6b71cc",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 410,
+        "y": 177,
+        "wires": [
+            [
+                "4a99264f.206348"
+            ]
+        ]
+    },
+    {
+        "id": "4a99264f.206348",
+        "type": "function",
+        "z": "37f0ccf6.6b71cc",
+        "name": "New Record Available",
+        "func": "lastUpdateTime = flow.get('lastUpdateTime');\n\nvar updateTimeTemp = new Date(msg.payload.updateTime)\nvar updateTime = updateTimeTemp.toISOString() ;\n\nif(updateTime > lastUpdateTime) {\n    msg.needUpdate = true ;\n    msg.payload.updateTime = updateTime ;\n} else {\n    msg.needUpdate = false ;\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 605,
+        "y": 177,
+        "wires": [
+            [
+                "a5266dd0.531b08"
+            ]
+        ]
+    },
+    {
+        "id": "a5266dd0.531b08",
+        "type": "switch",
+        "z": "37f0ccf6.6b71cc",
+        "name": "Need Update",
+        "property": "needUpdate",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "false",
+                "vt": "jsonata"
+            },
+            {
+                "t": "eq",
+                "v": "true",
+                "vt": "jsonata"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 270,
+        "y": 234,
+        "wires": [
+            [
+                "3762950.5f9e8ec"
+            ],
+            [
+                "d629c8e.14838b8"
+            ]
+        ]
+    },
+    {
+        "id": "3762950.5f9e8ec",
+        "type": "function",
+        "z": "37f0ccf6.6b71cc",
+        "name": "No Update",
+        "func": "msg.payload = \"No Update\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 461,
+        "y": 227,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "9dc0f977.50d88",
+        "type": "debug",
+        "z": "37f0ccf6.6b71cc",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 733,
+        "y": 269,
+        "wires": []
+    },
+    {
+        "id": "14f76650.95f762",
+        "type": "mongodb3 in",
+        "z": "37f0ccf6.6b71cc",
+        "service": "_ext_",
+        "configNode": "ecc26120.5c01a8",
+        "name": "HKO Retrieve Records",
+        "collection": "Weather Report",
+        "operation": "find.toArray",
+        "x": 545,
+        "y": 415,
+        "wires": [
+            [
+                "b2fa4aaa.6b9388"
+            ]
+        ]
+    },
+    {
+        "id": "e0be51b7.389718",
+        "type": "function",
+        "z": "37f0ccf6.6b71cc",
+        "name": "Construct Date Range",
+        "func": "var date = new Date();\nvar day = date.getDate() ;\nvar month = date.getMonth();\nvar year = date.getFullYear();\nvar hour = date.getHours();\nvar minutes = date.getMinutes();\nvar seconds = date.getSeconds();\nvar st, et ;\nvar minMilliSeconds = 60 * 1000;\nvar hourMilliSeconds = 60 * minMilliSeconds;\nvar dayMilliSeconds = 24 * hourMilliSeconds;\nvar duration = 1 * dayMilliSeconds;\n\net = date ;\net.setSeconds(seconds/10*10);\nst = new Date() ;\nst.setTime(et.getTime() - duration);\n\nmsg.startTime = st ;\nmsg.endTime = et ;\n\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 261,
+        "y": 417,
+        "wires": [
+            [
+                "b3f8996c.583ea"
+            ]
+        ]
+    },
+    {
+        "id": "b3f8996c.583ea",
+        "type": "function",
+        "z": "37f0ccf6.6b71cc",
+        "name": "Construct Queries",
+        "func": "var st = msg.startTime;\nvar et = msg.endTime;\n\nvar stts = st.getTime();\nvar etts = et.getTime();\n\nvar ststr=st.toISOString();\nvar etstr=et.toISOString();\n\nvar query = { 'updateTime': { $gt: ststr, $lt: etstr} };\n\nmsg.payload = query;\nmsg.ststr = ststr ;\nmsg.etstr = etstr ;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 384,
+        "y": 353,
+        "wires": [
+            [
+                "14f76650.95f762"
+            ]
+        ]
+    },
+    {
+        "id": "b2fa4aaa.6b9388",
+        "type": "function",
+        "z": "37f0ccf6.6b71cc",
+        "name": "Format Chart Data",
+        "func": "var weatherDataArray = Object.values(msg.payload) ;\n\nvar dataCount = weatherDataArray.length ;\n\nvar i, j ;\n\nvar placeDataArray = {} ;\n\n\nfor(j = 0; j < dataCount; j++) {\n    for(i = 0; i < weatherDataArray[j].temperature.data.length; i++) {\n        if(!placeDataArray.hasOwnProperty(weatherDataArray[j].temperature.data[i].place)) {\n            placeDataArray[weatherDataArray[j].temperature.data[i].place] = [] ;\n        }\n        placeDataArray[weatherDataArray[j].temperature.data[i].place].push({\"x\": new Date(weatherDataArray[j].temperature.recordTime), \"y\": weatherDataArray[j].temperature.data[i].value});\n    }\n}\n\nvar chartData = [{\"series\": Object.keys(placeDataArray), \"data\": Object.values(placeDataArray), \"labels\": \"\"}];\n\nmsg.payload = chartData ;\n\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 258.5,
+        "y": 482,
+        "wires": [
+            [
+                "2c261de.13f9f62"
+            ]
+        ]
+    },
+    {
+        "id": "2c261de.13f9f62",
+        "type": "ui_chart",
+        "z": "37f0ccf6.6b71cc",
+        "name": "",
+        "group": "4921adae.55bbbc",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "Temperature Chart",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": true,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "24",
+        "removeOlderPoints": "24",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "useOldStyle": false,
+        "outputs": 1,
+        "x": 534,
+        "y": 483,
+        "wires": [
+            [
+                "6277e851.3741e"
+            ]
+        ]
+    },
+    {
+        "id": "b3c26fd7.7c096",
+        "type": "inject",
+        "z": "37f0ccf6.6b71cc",
+        "name": "",
+        "topic": "Timer",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "300",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "1",
+        "x": 150,
+        "y": 356,
+        "wires": [
+            [
+                "e0be51b7.389718"
+            ]
+        ]
+    },
+    {
+        "id": "6277e851.3741e",
+        "type": "debug",
+        "z": "37f0ccf6.6b71cc",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 584,
+        "y": 539,
+        "wires": []
+    }
+]
