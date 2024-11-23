@@ -1,0 +1,2659 @@
+[
+    {
+        "id": "dba4c8708382038b",
+        "type": "tab",
+        "label": "SubwayTraffic Query",
+        "disabled": true,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "e8060314bca689e4",
+        "type": "tab",
+        "label": "Sai Kung District Solar Query",
+        "disabled": true,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "4707ecdd1660c47d",
+        "type": "tab",
+        "label": "Hospital Query",
+        "disabled": true,
+        "info": ""
+    },
+    {
+        "id": "b9ea2bdf7f14dc1b",
+        "type": "tab",
+        "label": "Temperature Query",
+        "disabled": true,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "2905f396395f953e",
+        "type": "tab",
+        "label": "Rain Query",
+        "disabled": true,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "266468707cf430d8",
+        "type": "mongodb3",
+        "uri": "mongodb://Mymongo:27017",
+        "name": "u",
+        "options": "",
+        "parallelism": "-1"
+    },
+    {
+        "id": "e9f24978.c8dae8",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-dark",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "customTheme": {
+                "name": "HKSTP",
+                "default": "#4B7930",
+                "baseColor": "#371a95",
+                "baseFont": "Arial,Arial,Helvetica,sans-serif",
+                "reset": false
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#097479",
+                    "value": "#097479",
+                    "edited": true
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#097479",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#111111",
+                    "edited": true
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#0eb8c0",
+                    "edited": true
+                },
+                "group-borderColor": {
+                    "value": "#555555",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#333333",
+                    "edited": true
+                },
+                "widget-textColor": {
+                    "value": "#eeeeee",
+                    "edited": true
+                },
+                "widget-backgroundColor": {
+                    "value": "#097479",
+                    "edited": true
+                },
+                "widget-borderColor": {
+                    "value": "#333333",
+                    "edited": true
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "ui_tab_train",
+        "type": "ui_tab",
+        "name": "MTR Info",
+        "icon": "train",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "dashboard_tab",
+        "type": "ui_tab",
+        "name": "Hospital Info",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "0d38c8c0a52f11eb",
+        "type": "ui_tab",
+        "name": "Solar Info",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "80aca725b7e1ae27",
+        "type": "ui_group",
+        "name": "Solar Intensity",
+        "tab": "0d38c8c0a52f11eb",
+        "order": 1,
+        "disp": true,
+        "width": "10",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "999e3c9c23b86672",
+        "type": "ui_group",
+        "name": "HKU station",
+        "tab": "ui_tab_train",
+        "order": 1,
+        "disp": true,
+        "width": "18",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "997a17a510acdb3a",
+        "type": "ui_group",
+        "name": "Hospital Emergency Waiting Time",
+        "tab": "dashboard_tab",
+        "order": 1,
+        "disp": true,
+        "width": "24",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "05f546e63b40bc9b",
+        "type": "ui_tab",
+        "name": "Temperature Info",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "6d89443dc96fd58c",
+        "type": "ui_group",
+        "name": "Temperature",
+        "tab": "05f546e63b40bc9b",
+        "order": 1,
+        "disp": true,
+        "width": "20",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "a37f3cb8b0a3572f",
+        "type": "ui_tab",
+        "name": "Rain Info",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "d833fed9fc0ee58b",
+        "type": "ui_group",
+        "name": "Rain",
+        "tab": "a37f3cb8b0a3572f",
+        "order": 1,
+        "disp": true,
+        "width": "25",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "700917c1862ffef7",
+        "type": "inject",
+        "z": "dba4c8708382038b",
+        "name": "Fetch Train Schedule",
+        "props": [],
+        "repeat": "60",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "1",
+        "topic": "",
+        "x": 140,
+        "y": 120,
+        "wires": [
+            [
+                "f15557bd6c7fa32e"
+            ]
+        ]
+    },
+    {
+        "id": "f15557bd6c7fa32e",
+        "type": "http request",
+        "z": "dba4c8708382038b",
+        "name": "Get Train Schedule",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "https://rt.data.gov.hk/v1/transport/mtr/getSchedule.php?line=ISL&sta=HKU",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 360,
+        "y": 120,
+        "wires": [
+            [
+                "41f2f5e643c1b25e"
+            ]
+        ]
+    },
+    {
+        "id": "41f2f5e643c1b25e",
+        "type": "function",
+        "z": "dba4c8708382038b",
+        "name": "Extract Train Info",
+        "func": "// Assuming the API response structure is as provided\nconst data = msg.payload.data[\"ISL-HKU\"];\nconst upTrains = data.UP;\nconst downTrains = data.DOWN;\n\n// Extract the next 4 up trains\nconst nextUpTrains = upTrains.slice(0, 4).map(train => ({\n    seq: train.seq,\n    destination: train.dest,\n    platform: train.plat,\n    time: train.time,\n    ttnt: train.ttnt,\n    valid: train.valid\n}));\n\n// Extract the next 4 down trains\nconst nextDownTrains = downTrains.slice(0, 4).map(train => ({\n    seq: train.seq,\n    destination: train.dest,\n    platform: train.plat,\n    time: train.time,\n    ttnt: train.ttnt,\n    valid: train.valid\n}));\n\n// Prepare payload for MongoDB and Dashboard\nmsg.payload = {\n    sys_time: msg.payload.sys_time,\n    curr_time: msg.payload.curr_time,\n    UP: nextUpTrains,\n    DOWN: nextDownTrains,\n    isdelay: msg.payload.isdelay\n};\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 560,
+        "y": 120,
+        "wires": [
+            [
+                "27fbb184516d7cb5",
+                "d793dd46727f380f"
+            ]
+        ]
+    },
+    {
+        "id": "27fbb184516d7cb5",
+        "type": "debug",
+        "z": "dba4c8708382038b",
+        "name": "Train Data Debug",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 950,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "e53bedae7616cea3",
+        "type": "inject",
+        "z": "dba4c8708382038b",
+        "name": "Retrieve Latest Schedule",
+        "props": [],
+        "repeat": "60",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "2",
+        "topic": "",
+        "x": 150,
+        "y": 240,
+        "wires": [
+            [
+                "0bef771db7e6154d",
+                "2de51bd4e7be53e3"
+            ]
+        ]
+    },
+    {
+        "id": "0bef771db7e6154d",
+        "type": "function",
+        "z": "dba4c8708382038b",
+        "name": "Prepare MongoDB Query",
+        "func": "msg.collection = \"TrainSchedule\";\nmsg.operation = \"findOne\";\nmsg.query = { sort: { _id: -1 } };\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 390,
+        "y": 240,
+        "wires": [
+            [
+                "d9bc601b44055546"
+            ]
+        ]
+    },
+    {
+        "id": "d9bc601b44055546",
+        "type": "mongodb3 in",
+        "z": "dba4c8708382038b",
+        "service": "_ext_",
+        "configNode": "266468707cf430d8",
+        "name": "Get Latest Train Schedule",
+        "collection": "TrainSchedule",
+        "operation": "find.forEach",
+        "x": 630,
+        "y": 240,
+        "wires": [
+            [
+                "c7858714dc369c64"
+            ]
+        ]
+    },
+    {
+        "id": "c7858714dc369c64",
+        "type": "function",
+        "z": "dba4c8708382038b",
+        "name": "Format for Dashboard",
+        "func": "const data = msg.payload;\n\n// 获取当前时间\nconst now = new Date();\n\n// 准备上行列车数据，过滤掉已经到站的列车\nlet upTrains = [];\nif (data.UP && Array.isArray(data.UP)) {\n    upTrains = data.UP\n        .filter(train => {\n            const trainTime = new Date(train.time);\n            return trainTime > now;\n        })\n        .slice(0, 4) // 获取下一个 4 列列车\n        .map(train => ({\n            \"Seq\": parseInt(train.seq),\n            \"Destination\": train.destination,\n            \"Platform\": parseInt(train.platform),\n            \"Time\": train.time,\n            \"TTNT (min)\": parseInt(train.ttnt),\n            \"Valid\": train.valid\n        }));\n}\n\n// 准备下行列车数据，过滤掉已经到站的列车\nlet downTrains = [];\nif (data.DOWN && Array.isArray(data.DOWN)) {\n    downTrains = data.DOWN\n        .filter(train => {\n            const trainTime = new Date(train.time);\n            return trainTime > now;\n        })\n        .slice(0, 4) // 获取下一个 4 列列车\n        .map(train => ({\n            \"Seq\": parseInt(train.seq),\n            \"Destination\": train.destination,\n            \"Platform\": parseInt(train.platform),\n            \"Time\": train.time,\n            \"TTNT (min)\": parseInt(train.ttnt),\n            \"Valid\": train.valid\n        }));\n}\n\n// 创建用于表格的消息\nconst upMsg = {\n    payload: upTrains\n};\n\nconst downMsg = {\n    payload: downTrains\n};\n\nreturn [upMsg, downMsg];",
+        "outputs": 2,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 820,
+        "y": 300,
+        "wires": [
+            [
+                "413766416ae3136b"
+            ],
+            [
+                "afb237454afd0194"
+            ]
+        ]
+    },
+    {
+        "id": "413766416ae3136b",
+        "type": "ui_table",
+        "z": "dba4c8708382038b",
+        "group": "999e3c9c23b86672",
+        "name": "Table UP Trains",
+        "order": 1,
+        "width": "18",
+        "height": "4",
+        "columns": [
+            {
+                "field": "Seq",
+                "title": "Seq",
+                "width": "",
+                "align": "left",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "Destination",
+                "title": "Destination",
+                "width": "",
+                "align": "left",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "Platform",
+                "title": "Platform",
+                "width": "",
+                "align": "left",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "Time",
+                "title": "Time",
+                "width": "",
+                "align": "left",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "TTNT (min)",
+                "title": "TTNT (min)",
+                "width": "",
+                "align": "left",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "Valid",
+                "title": "Valid",
+                "width": "",
+                "align": "left",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            }
+        ],
+        "outputs": 0,
+        "cts": false,
+        "x": 1060,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "afb237454afd0194",
+        "type": "ui_table",
+        "z": "dba4c8708382038b",
+        "group": "999e3c9c23b86672",
+        "name": "Table DOWN Trains",
+        "order": 2,
+        "width": "18",
+        "height": "4",
+        "columns": [
+            {
+                "field": "Seq",
+                "title": "Seq",
+                "width": "",
+                "align": "left",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "Destination",
+                "title": "Destination",
+                "width": "",
+                "align": "left",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "Platform",
+                "title": "Platform",
+                "width": "",
+                "align": "left",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "Time",
+                "title": "Time",
+                "width": "",
+                "align": "left",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "TTNT (min)",
+                "title": "TTNT (min)",
+                "width": "",
+                "align": "left",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "Valid",
+                "title": "Valid",
+                "width": "",
+                "align": "left",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            }
+        ],
+        "outputs": 0,
+        "cts": false,
+        "x": 1030,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "d793dd46727f380f",
+        "type": "mongodb3 in",
+        "z": "dba4c8708382038b",
+        "service": "_ext_",
+        "configNode": "266468707cf430d8",
+        "name": "Insert Train Schedule",
+        "collection": "TrainSchedule",
+        "operation": "insert",
+        "x": 800,
+        "y": 180,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "39952bcf4e6ac172",
+        "type": "ui_text",
+        "z": "dba4c8708382038b",
+        "group": "999e3c9c23b86672",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Retrieved time:",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 820,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "2de51bd4e7be53e3",
+        "type": "function",
+        "z": "dba4c8708382038b",
+        "name": "Get Current time",
+        "func": "const now = new Date();\nconst currentTime = now.toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' });\nmsg.payload = currentTime;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 450,
+        "y": 340,
+        "wires": [
+            [
+                "39952bcf4e6ac172"
+            ]
+        ]
+    },
+    {
+        "id": "ada57009a812ec4c",
+        "type": "ui_template",
+        "z": "dba4c8708382038b",
+        "group": "999e3c9c23b86672",
+        "name": "Abbr of station",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "format": "<div style=\"font-family: Arial, sans-serif; font-size: 16px; margin: 10px;\">\n    <table style=\"width: 100%; border-collapse: collapse; text-align: left;\">\n        <thead>\n            <tr style=\"background-color: #f2f2f2;\">\n                <th style=\"padding: 8px; border: 1px solid #ddd; width: 20%;\">Station Code</th>\n                <th style=\"padding: 8px; border: 1px solid #ddd;\">Station Name</th>\n            </tr>\n        </thead>\n        <tbody>\n            <tr>\n                <td style=\"padding: 8px; border: 1px solid #ddd;\">KET</td>\n                <td style=\"padding: 8px; border: 1px solid #ddd;\">Kennedy Town</td>\n            </tr>\n            <tr>\n                <td style=\"padding: 8px; border: 1px solid #ddd;\">HKU</td>\n                <td style=\"padding: 8px; border: 1px solid #ddd;\">HKU</td>\n            </tr>\n            <tr>\n                <td style=\"padding: 8px; border: 1px solid #ddd;\">SYP</td>\n                <td style=\"padding: 8px; border: 1px solid #ddd;\">Sai Ying Pun</td>\n            </tr>\n            <tr>\n                <td style=\"padding: 8px; border: 1px solid #ddd;\">SHW</td>\n                <td style=\"padding: 8px; border: 1px solid #ddd;\">Sheung Wan</td>\n            </tr>\n            <tr>\n                <td style=\"padding: 8px; border: 1px solid #ddd;\">CEN</td>\n                <td style=\"padding: 8px; border: 1px solid #ddd;\">Central</td>\n            </tr>\n            <tr>\n                <td style=\"padding: 8px; border: 1px solid #ddd;\">ADM</td>\n                <td style=\"padding: 8px; border: 1px solid #ddd;\">Admiralty</td>\n            </tr>\n            <tr>\n                <td style=\"padding: 8px; border: 1px solid #ddd;\">WAC</td>\n                <td style=\"padding: 8px; border: 1px solid #ddd;\">Wan Chai</td>\n            </tr>\n            <tr>\n                <td style=\"padding: 8px; border: 1px solid #ddd;\">CAB</td>\n                <td style=\"padding: 8px; border: 1px solid #ddd;\">Causeway Bay</td>\n            </tr>\n            <tr>\n                <td style=\"padding: 8px; border: 1px solid #ddd;\">TIH</td>\n                <td style=\"padding: 8px; border: 1px solid #ddd;\">Tin Hau</td>\n            </tr>\n            <tr>\n                <td style=\"padding: 8px; border: 1px solid #ddd;\">FOH</td>\n                <td style=\"padding: 8px; border: 1px solid #ddd;\">Fortress Hill</td>\n            </tr>\n            <tr>\n                <td style=\"padding: 8px; border: 1px solid #ddd;\">NOP</td>\n                <td style=\"padding: 8px; border: 1px solid #ddd;\">North Point</td>\n            </tr>\n            <tr>\n                <td style=\"padding: 8px; border: 1px solid #ddd;\">QUB</td>\n                <td style=\"padding: 8px; border: 1px solid #ddd;\">Quarry Bay</td>\n            </tr>\n            <tr>\n                <td style=\"padding: 8px; border: 1px solid #ddd;\">TAK</td>\n                <td style=\"padding: 8px; border: 1px solid #ddd;\">Tai Koo</td>\n            </tr>\n            <tr>\n                <td style=\"padding: 8px; border: 1px solid #ddd;\">SWH</td>\n                <td style=\"padding: 8px; border: 1px solid #ddd;\">Sai Wan Ho</td>\n            </tr>\n            <tr>\n                <td style=\"padding: 8px; border: 1px solid #ddd;\">SKW</td>\n                <td style=\"padding: 8px; border: 1px solid #ddd;\">Shau Kei Wan</td>\n            </tr>\n            <tr>\n                <td style=\"padding: 8px; border: 1px solid #ddd;\">HFC</td>\n                <td style=\"padding: 8px; border: 1px solid #ddd;\">Heng Fa Chuen</td>\n            </tr>\n            <tr>\n                <td style=\"padding: 8px; border: 1px solid #ddd;\">CHW</td>\n                <td style=\"padding: 8px; border: 1px solid #ddd;\">Chai Wan</td>\n            </tr>\n        </tbody>\n    </table>\n</div>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 820,
+        "y": 420,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8589208ea4e3d9e4",
+        "type": "ui_text",
+        "z": "dba4c8708382038b",
+        "group": "999e3c9c23b86672",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "name": "URL",
+        "label": "Website",
+        "format": "https://data.gov.hk/en-data/dataset/mtr-data2-nexttrain-data",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 830,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "e718dd828b355316",
+        "type": "ui_text",
+        "z": "dba4c8708382038b",
+        "group": "999e3c9c23b86672",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "name": "Author",
+        "label": "Author",
+        "format": "Tian Qijia",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 830,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "f4a823586601fb55",
+        "type": "inject",
+        "z": "e8060314bca689e4",
+        "name": "Fetch Data",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "300",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 210,
+        "y": 120,
+        "wires": [
+            [
+                "adadf24223bd1feb"
+            ]
+        ]
+    },
+    {
+        "id": "59ba2aeed4d23913",
+        "type": "http request",
+        "z": "e8060314bca689e4",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "https://data.weather.gov.hk/weatherAPI/hko_data/csdi/dataset/latest_1min_solar_csdi_0.csv",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 170,
+        "y": 240,
+        "wires": [
+            [
+                "0b93cf7c57e02405"
+            ]
+        ]
+    },
+    {
+        "id": "0b93cf7c57e02405",
+        "type": "csv",
+        "z": "e8060314bca689e4",
+        "name": "",
+        "spec": "rfc",
+        "sep": ",",
+        "hdrin": true,
+        "hdrout": "none",
+        "multi": "one",
+        "ret": "\\r\\n",
+        "temp": "",
+        "skip": "0",
+        "strings": true,
+        "include_empty_strings": "",
+        "include_null_values": "",
+        "x": 310,
+        "y": 240,
+        "wires": [
+            [
+                "2c8da910953634de"
+            ]
+        ]
+    },
+    {
+        "id": "2c8da910953634de",
+        "type": "function",
+        "z": "e8060314bca689e4",
+        "name": "extract function",
+        "func": "function safeParseInt(payload, fields, fieldName) {\n    for (let field of fields) {\n        let value = parseInt(payload[field]);\n        if (!isNaN(value)) {\n            return value;\n        }\n    }\n    node.error(`Invalid or missing value for ${fieldName}`);\n    return null;\n}\n\n// 提取时间字段（中英双保险）\nlet year = safeParseInt(msg.payload, ['Date time (Year)', '日期時間 (年)', '日期时间 (年)'], 'Year');\nlet month = safeParseInt(msg.payload, ['Date time (Month)', '日期時間 (月)', '日期时间 (月)'], 'Month');\nlet day = safeParseInt(msg.payload, ['Date time (Day)', '日期時間 (日)', '日期时间 (日)'], 'Day');\nlet hour = safeParseInt(msg.payload, ['Date time (Hour)', '日期時間 (時)', '日期时间 (时)'], 'Hour');\nlet minute = safeParseInt(msg.payload, ['Date time (Minute)', '日期時間 (分)', '日期时间 (分)'], 'Minute');\n\n// 检查字段有效性\nif (year === null || month === null || day === null || hour === null || minute === null) {\n    node.error(\"One or more date fields are missing or invalid. Cannot generate timestamp.\");\n    return null;\n}\n\n// 使用 Date.UTC 生成 UTC 时间戳\nlet utcTimestamp = Date.UTC(year, month - 1, day, hour - 8, minute, 0); // 减去 8 小时（东八区）\nlet localTime = new Date(utcTimestamp); // UTC 时间\n\n// 提取太阳辐射数据（中英双保险）\nfunction safeParseFloat(payload, fields, fieldName) {\n    for (let field of fields) {\n        let value = parseFloat(payload[field]);\n        if (!isNaN(value)) {\n            return value;\n        }\n    }\n    return null; // 默认值为 null\n}\n\nlet globalSolar = safeParseFloat(msg.payload, ['Global Solar Radiation(watt/square meter)', '太陽總輻射量（瓦特/平方米）', '太阳总辐射量（瓦特/平方米）'], 'Global Solar Radiation');\nlet directSolar = safeParseFloat(msg.payload, ['Direct Solar Radiation(watt/square meter)', '太陽直接輻射量（瓦特/平方米）', '太阳直接辐射量（瓦特/平方米）'], 'Direct Solar Radiation');\nlet diffuseSolar = safeParseFloat(msg.payload, ['Diffuse Radiation(watt/square meter)', '太陽漫射輻射量（瓦特/平方米）', '太阳漫射辐射量（瓦特/平方米）'], 'Diffuse Radiation');\n\n// 构造输出数据\nlet solarData = {\n    localtimestamp: localTime.toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' }),\n    timestamp: localTime.toISOString(),\n    globalSolarRadiation: globalSolar,\n    directSolarRadiation: directSolar,\n    diffuseRadiation: diffuseSolar\n};\n\n\n// 返回结果\nmsg.payload = solarData;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 240,
+        "wires": [
+            [
+                "0f59c5197e03e7d0",
+                "8e128726a30a6a30"
+            ]
+        ]
+    },
+    {
+        "id": "0f59c5197e03e7d0",
+        "type": "debug",
+        "z": "e8060314bca689e4",
+        "name": "extract result",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 730,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "100a548c96352090",
+        "type": "mongodb3 in",
+        "z": "e8060314bca689e4",
+        "service": "_ext_",
+        "configNode": "266468707cf430d8",
+        "name": "Insert Record",
+        "collection": "solar",
+        "operation": "insert",
+        "x": 440,
+        "y": 340,
+        "wires": [
+            [
+                "2a0943865d118206"
+            ]
+        ]
+    },
+    {
+        "id": "adadf24223bd1feb",
+        "type": "function",
+        "z": "e8060314bca689e4",
+        "name": "Retrieve Last Record Query",
+        "func": "msg.payload = [\n    {\n        \"$query\": {}\n    },\n    {\n        \"sort\": {\n            \"_id\": -1\n        }\n    }\n]\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 280,
+        "y": 180,
+        "wires": [
+            [
+                "e92bb5038d2665fa"
+            ]
+        ]
+    },
+    {
+        "id": "e92bb5038d2665fa",
+        "type": "mongodb3 in",
+        "z": "e8060314bca689e4",
+        "service": "_ext_",
+        "configNode": "266468707cf430d8",
+        "name": "Find Last Record",
+        "collection": "solar",
+        "operation": "findOne",
+        "x": 450,
+        "y": 120,
+        "wires": [
+            [
+                "e20a3891557bf223"
+            ]
+        ]
+    },
+    {
+        "id": "e20a3891557bf223",
+        "type": "function",
+        "z": "e8060314bca689e4",
+        "name": "Get Last Timestamp",
+        "func": "if(msg.payload.hasOwnProperty('timestamp')) {\n    flow.set('timestamp', msg.payload.timestamp);\n} else {\n    flow.set('timestamp', \"\");\n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 580,
+        "y": 180,
+        "wires": [
+            [
+                "59ba2aeed4d23913"
+            ]
+        ]
+    },
+    {
+        "id": "8e128726a30a6a30",
+        "type": "function",
+        "z": "e8060314bca689e4",
+        "name": "New Record Available",
+        "func": "var lastTime = flow.get('timestamp');\nvar updateTime = new Date(msg.payload.timestamp);\n\nif (!lastTime || updateTime > new Date(lastTime)) {\n    msg.needUpdate = true;\n    msg.payload.updateTime = updateTime.toISOString(); // 确保格式为 ISO\n    flow.set('timestamp', updateTime.toISOString()); // 更新存储的时间戳\n    node.warn(\"Data updated and stored\");\n} else {\n    msg.needUpdate = false;\n    node.warn(\"No update needed\");\n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 720,
+        "y": 240,
+        "wires": [
+            [
+                "9f9322e7155f66f8"
+            ]
+        ]
+    },
+    {
+        "id": "9f9322e7155f66f8",
+        "type": "switch",
+        "z": "e8060314bca689e4",
+        "name": "Need Update",
+        "property": "needUpdate",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "false",
+                "vt": "jsonata"
+            },
+            {
+                "t": "eq",
+                "v": "true",
+                "vt": "jsonata"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 200,
+        "y": 320,
+        "wires": [
+            [
+                "29bb581aaf7c8034"
+            ],
+            [
+                "100a548c96352090"
+            ]
+        ]
+    },
+    {
+        "id": "29bb581aaf7c8034",
+        "type": "function",
+        "z": "e8060314bca689e4",
+        "name": "No Update",
+        "func": "msg.payload = \"No Update\"\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 430,
+        "y": 300,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2a0943865d118206",
+        "type": "debug",
+        "z": "e8060314bca689e4",
+        "name": "insert debug",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 710,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "03b992f56cb2694b",
+        "type": "inject",
+        "z": "e8060314bca689e4",
+        "name": "Update Chart",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "300",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 220,
+        "y": 420,
+        "wires": [
+            [
+                "cea6ac5ba7a01dc1"
+            ]
+        ]
+    },
+    {
+        "id": "cea6ac5ba7a01dc1",
+        "type": "function",
+        "z": "e8060314bca689e4",
+        "name": "Construct Date Range",
+        "func": "var date = new Date();\nvar day = date.getDate() ;\nvar month = date.getMonth();\nvar year = date.getFullYear();\nvar hour = date.getHours();\nvar minutes = date.getMinutes();\nvar seconds = date.getSeconds();\nvar st, et ;\nvar minMilliSeconds = 60 * 1000;\nvar hourMilliSeconds = 60 * minMilliSeconds;\nvar dayMilliSeconds = 24 * hourMilliSeconds;\nvar duration = 1 * dayMilliSeconds;\n\net = date ;\net.setSeconds(seconds/10*10);\nst = new Date() ;\nst.setTime(et.getTime() - duration);\n\nmsg.startTime = st ;\nmsg.endTime = et ;\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 280,
+        "y": 480,
+        "wires": [
+            [
+                "c96150598169f4ca"
+            ]
+        ]
+    },
+    {
+        "id": "c96150598169f4ca",
+        "type": "function",
+        "z": "e8060314bca689e4",
+        "name": "Construct Queries",
+        "func": "var st = msg.startTime;\nvar et = msg.endTime;\n\nvar stts = st.getTime();\nvar etts = et.getTime();\n\nvar ststr=st.toISOString();\nvar etstr=et.toISOString();\n\nvar query = { 'timestamp': { $gt: ststr, $lt: etstr} };\n\nmsg.payload = query;\nmsg.ststr = ststr ;\nmsg.etstr = etstr ;\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 490,
+        "y": 420,
+        "wires": [
+            [
+                "d33443c83f35adc2"
+            ]
+        ]
+    },
+    {
+        "id": "d33443c83f35adc2",
+        "type": "mongodb3 in",
+        "z": "e8060314bca689e4",
+        "service": "_ext_",
+        "configNode": "266468707cf430d8",
+        "name": "Retrive Records",
+        "collection": "solar",
+        "operation": "find.toArray",
+        "x": 580,
+        "y": 480,
+        "wires": [
+            [
+                "981575180a6d85bf"
+            ]
+        ]
+    },
+    {
+        "id": "981575180a6d85bf",
+        "type": "function",
+        "z": "e8060314bca689e4",
+        "name": "Format Chart Data",
+        "func": "// 将 payload 转换为数组\nvar solarDataArray = Object.values(msg.payload); // 提取对象中的值，转换为数组\n\n// 初始化数据容器\nvar globalDataPoints = [];\nvar directDataPoints = [];\nvar diffuseDataPoints = [];\n\n// 遍历记录，提取时间戳和辐射值\nsolarDataArray.forEach(dataItem => {\n    if (dataItem.timestamp) {\n        let utcDate = new Date(dataItem.timestamp); // 原始 UTC 时间\n\n        // 添加全局辐射数据点\n        if (dataItem.globalSolarRadiation !== undefined) {\n            globalDataPoints.push({\n                x: utcDate.toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' }),\n                y: dataItem.globalSolarRadiation\n            });\n        }\n\n        // 添加直接辐射数据点\n        if (dataItem.directSolarRadiation !== undefined) {\n            directDataPoints.push({\n                x: utcDate.toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' }),\n                y: dataItem.directSolarRadiation\n            });\n        }\n\n        // 添加漫射辐射数据点\n        if (dataItem.diffuseRadiation !== undefined) {\n            diffuseDataPoints.push({\n                x: utcDate.toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' }),\n                y: dataItem.diffuseRadiation\n            });\n        }\n    } else {\n        node.warn(`Skipping Invalid Record: ${JSON.stringify(dataItem)}`);\n    }\n});\n\n// 构造图表数据格式\nvar chartData = [\n    {\n        series: [\"Global Solar Radiation\"],\n        data: [globalDataPoints],\n        labels: \"\"\n    },\n    {\n        series: [\"Direct Solar Radiation\"],\n        data: [directDataPoints],\n        labels: \"\"\n    },\n    {\n        series: [\"Diffuse Radiation\"],\n        data: [diffuseDataPoints],\n        labels: \"\"\n    }\n];\n\n\n// 返回格式化数据\nmsg.payload = chartData;\n\nmsg.ui_control = {\n    options: {\n        legend: {\n            display: true // 显示图例\n        },\n        scales: {\n            xAxes: [{\n                type: 'time',\n                time: {\n                    displayFormats: {\n                        hour: 'HH:mm' // 格式化X轴为小时和分钟\n                    }\n                }\n            }]\n        }\n    }\n};\n\nmsg.payload = [\n    {\n        series: [\"Global Solar Radiation\", \"Direct Solar Radiation\", \"Diffuse Radiation\"],\n        data: [\n            globalDataPoints,\n            directDataPoints,\n            diffuseDataPoints\n        ],\n        labels: \"\"\n    }\n];\n\nmsg.ui_control = {\n    colors: [\n        \"#1f77b4\", // 蓝色 - Global Solar Radiation\n        \"#2ca02c\", // 绿色 - Direct Solar Radiation\n        \"#d62728\"  // 红色 - Diffuse Radiation\n    ]\n};\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 230,
+        "y": 540,
+        "wires": [
+            [
+                "5e577a525503813f"
+            ]
+        ]
+    },
+    {
+        "id": "5e577a525503813f",
+        "type": "ui_chart",
+        "z": "e8060314bca689e4",
+        "name": "Chart",
+        "group": "80aca725b7e1ae27",
+        "order": 0,
+        "width": "10",
+        "height": "6",
+        "label": "Kau Sai Chau SolarRadiation on Global, Direct and Diffuse",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "24",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 450,
+        "y": 540,
+        "wires": [
+            [
+                "f1916132138cc0d3"
+            ]
+        ]
+    },
+    {
+        "id": "f1916132138cc0d3",
+        "type": "debug",
+        "z": "e8060314bca689e4",
+        "name": "chart debug",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 670,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "a8ec706c2e317756",
+        "type": "ui_template",
+        "z": "e8060314bca689e4",
+        "group": "80aca725b7e1ae27",
+        "name": "Notes on Color",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "format": "<div style=\"text-align: left; font-size: 14px;\">\n    <p><span style=\"color: #1f77b4;\">■</span> Global Solar Radiation(W/m2)</p>\n    <p><span style=\"color: #2ca02c;\">■</span> Direct Solar Radiation(W/m2)</p>\n    <p><span style=\"color: #d62728;\">■</span> Diffuse Radiation(W/m2)</p>\n</div>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 460,
+        "y": 600,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b99c099f09f296e3",
+        "type": "ui_text",
+        "z": "e8060314bca689e4",
+        "group": "80aca725b7e1ae27",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "name": "URL",
+        "label": "Website",
+        "format": "https://data.gov.hk/sc-data/dataset/hk-hko-rss-latest-one-minute-solar-radiation-info",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 450,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "317cfeea2294e16b",
+        "type": "ui_text",
+        "z": "e8060314bca689e4",
+        "group": "80aca725b7e1ae27",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "Author",
+        "label": "Author",
+        "format": "Tian Qijia",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 450,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "41cb264b552e2aba",
+        "type": "mongodb3 in",
+        "z": "4707ecdd1660c47d",
+        "service": "_ext_",
+        "configNode": "266468707cf430d8",
+        "name": "Hospital Retrieve Last Record",
+        "collection": "hospital_report",
+        "operation": "findOne",
+        "x": 530,
+        "y": 120,
+        "wires": [
+            [
+                "20b6b59b609de5fe",
+                "ecb4b49d8749905a"
+            ]
+        ]
+    },
+    {
+        "id": "a659e8cb7c547b34",
+        "type": "inject",
+        "z": "4707ecdd1660c47d",
+        "name": "Timer:时间戳",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "900",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "1",
+        "topic": "",
+        "payload": "",
+        "payloadType": "str",
+        "x": 140,
+        "y": 120,
+        "wires": [
+            [
+                "e6aeacc1a376656c"
+            ]
+        ]
+    },
+    {
+        "id": "e7421922d733888d",
+        "type": "http request",
+        "z": "4707ecdd1660c47d",
+        "name": "获取急症室等候时间",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "https://www.ha.org.hk/opendata/aed/aedwtdata-en.json",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 340,
+        "y": 220,
+        "wires": [
+            [
+                "f9d458d3c1b30fc8",
+                "d3bf6ca6ddbe7c93"
+            ]
+        ]
+    },
+    {
+        "id": "e6aeacc1a376656c",
+        "type": "function",
+        "z": "4707ecdd1660c47d",
+        "name": "处理数据",
+        "func": "// 首先检查消息对象\nif (!msg) {\n    node.error(\"Message object is undefined\");\n    return null;\n}\n\n// 检查 payload\nif (!msg.payload) {\n    node.warn(\"Payload is undefined, creating HTTP request\");\n\n    // 设置 HTTP 请求\n    msg.method = \"GET\";\n    msg.url = \"https://www.ha.org.hk/opendata/aed/aedwtdata-sc.json\";\n    msg.headers = {\n        \"Accept\": \"application/json\"\n    };\n\n    return msg;\n}\n\n// 如果有 payload，继续处理数据\nconst data = msg.payload;\n\n// 添加数据验证和调试\nif (!data) {\n    node.error(\"Data is undefined\");\n    return null;\n}\n\n// 调试输出\nnode.warn(\"Received data: \" + JSON.stringify(data));\n\n// 检查数据结构\nif (!data.waitTime || !Array.isArray(data.waitTime)) {\n    node.error(\"Invalid data structure: waitTime array not found\");\n    return null;\n}\n\n// 创建数组来存储格式化后的数据\nconst formattedData = [];\n\n// 辅助函数：将等待时间文字转换为小时数\nfunction parseWaitTime(waitTimeText) {\n    let hours = 0;\n    if (!waitTimeText) return hours;\n\n    if (waitTimeText.includes(\"超过\")) {\n        hours = parseFloat(waitTimeText.replace(\"超过\", \"\").replace(\"小时\", \"\").trim());\n    } else if (waitTimeText.includes(\"大约\")) {\n        hours = parseFloat(waitTimeText.replace(\"大约\", \"\").replace(\"小时\", \"\").trim());\n    }\n    return hours || 0;\n}\n\ntry {\n    // 遍历数据并格式化\n    data.waitTime.forEach(item => {\n        if (!item || !item.hospName || !item.topWait) {\n            node.warn(\"Invalid item found: \" + JSON.stringify(item));\n            return;\n        }\n\n        const waitTimeHours = parseWaitTime(item.topWait);\n\n        formattedData.push({\n            hospName: item.hospName,\n            waitTime: item.topWait,\n            waitTimeHours: waitTimeHours,\n            waitTimeLevel: waitTimeHours > 6 ? \"严重\" :\n                waitTimeHours > 4 ? \"繁忙\" :\n                    waitTimeHours > 2 ? \"中等\" : \"正常\",\n            timestamp: new Date()\n        });\n    });\n\n    // 检查是否成功格式化了数据\n    if (formattedData.length === 0) {\n        node.warn(\"No valid data was formatted\");\n        return null;\n    }\n\n    // 计算统计数据\n    const statistics = {\n        totalHospitals: formattedData.length,\n        averageWaitTime: (formattedData.reduce((acc, curr) => acc + curr.waitTimeHours, 0) / formattedData.length).toFixed(1),\n        busyHospitals: formattedData.filter(h => h.waitTimeHours > 4).length,\n        normalHospitals: formattedData.filter(h => h.waitTimeHours <= 2).length\n    };\n\n    // 创建最终的payload格式\n    msg.payload = {\n        waitTimeData: formattedData,\n        updateTime: data.updateTime || new Date().toISOString(),\n        timestamp: new Date(),\n        statistics: statistics,\n        metadata: {\n            dataSource: \"HA.org.hk\",\n            language: \"SC\",\n            dataVersion: \"1.0\"\n        }\n    };\n\n    return msg;\n\n} catch (error) {\n    node.error(\"Error processing data: \" + error.message);\n    node.error(\"Stack: \" + error.stack);\n    return null;\n}",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 300,
+        "y": 120,
+        "wires": [
+            [
+                "c14cbce246ac06d5",
+                "41cb264b552e2aba"
+            ]
+        ]
+    },
+    {
+        "id": "20b6b59b609de5fe",
+        "type": "function",
+        "z": "4707ecdd1660c47d",
+        "name": "检查数据更新",
+        "func": "const newData = msg.payload;\nconst lastRecord = msg.previous;\n\n// 如果没有上一条记录或者更新时间不同，则插入新数据\nif (!lastRecord || lastRecord.updateTime !== newData.updateTime) {\n    msg.operation = 'insert';\n    return msg;\n}\n\n// 如果数据相同，不执行插入\nreturn null;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 780,
+        "y": 120,
+        "wires": [
+            [
+                "d103873a9c9eaeed",
+                "e7421922d733888d"
+            ]
+        ]
+    },
+    {
+        "id": "979b0bdd8c908bb5",
+        "type": "mongodb3 in",
+        "z": "4707ecdd1660c47d",
+        "service": "_ext_",
+        "configNode": "266468707cf430d8",
+        "name": "Hospital Report Insert",
+        "collection": "hospital_report",
+        "operation": "insert",
+        "x": 760,
+        "y": 220,
+        "wires": [
+            [
+                "7eb089066d6ef015"
+            ]
+        ]
+    },
+    {
+        "id": "ecb4b49d8749905a",
+        "type": "debug",
+        "z": "4707ecdd1660c47d",
+        "name": "原query输出",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 770,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "d103873a9c9eaeed",
+        "type": "debug",
+        "z": "4707ecdd1660c47d",
+        "name": "检查数据更新",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 980,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "f9d458d3c1b30fc8",
+        "type": "function",
+        "z": "4707ecdd1660c47d",
+        "name": "新数据记录",
+        "func": "// 从响应中获取数据\nconst data = msg.payload;\n\n// 检查是否有数据\nif (!data || !data.waitTime || !data.updateTime) {\n    node.error(\"Invalid data format\");\n    return null;\n}\n\n// 创建医院等待时间数据对象\nconst waitTimeData = data.waitTime.map(item => {\n    // 解析等待时间\n    let waitTimeInHours = 0;\n    if (item.topWait.includes(\"Over\")) {\n        waitTimeInHours = parseFloat(item.topWait.replace(\"Over\", \"\").replace(\"hours\", \"\"));\n    } else if (item.topWait.includes(\"Around\")) {\n        waitTimeInHours = parseFloat(item.topWait.replace(\"Around\", \"\").replace(\"hours\", \"\"));\n    }\n\n    return {\n        hospName: item.hospName,\n        waitTime: item.topWait,\n        waitTimeInHours: waitTimeInHours\n    };\n});\n\n// 创建最终的数据结构\nmsg.payload = {\n    waitTimeData: waitTimeData,\n    updateTime: data.updateTime,\n    timestamp: new Date(),\n    metadata: {\n        dataSource: \"HA.org.hk\",\n        language: \"SC\",\n        totalHospitals: waitTimeData.length,\n        avgWaitTime: (waitTimeData.reduce((acc, curr) => acc + curr.waitTimeInHours, 0) / waitTimeData.length).toFixed(2)\n    }\n};\n\n// 添加查询条件，用于检查是否需要更新\nmsg.query = {\n    updateTime: data.updateTime\n};\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 550,
+        "y": 220,
+        "wires": [
+            [
+                "cc9e63c3cfe4efa2",
+                "979b0bdd8c908bb5"
+            ]
+        ]
+    },
+    {
+        "id": "cc9e63c3cfe4efa2",
+        "type": "debug",
+        "z": "4707ecdd1660c47d",
+        "name": "输出结果",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 720,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "d3bf6ca6ddbe7c93",
+        "type": "debug",
+        "z": "4707ecdd1660c47d",
+        "name": "输出http请求",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 550,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "c14cbce246ac06d5",
+        "type": "debug",
+        "z": "4707ecdd1660c47d",
+        "name": "数据处理输出",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 480,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "7eb089066d6ef015",
+        "type": "debug",
+        "z": "4707ecdd1660c47d",
+        "name": "显示数据库记录",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 980,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "8c9b0d1bbf1a7355",
+        "type": "inject",
+        "z": "4707ecdd1660c47d",
+        "name": "定时查询",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "900",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "1",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 130,
+        "y": 360,
+        "wires": [
+            [
+                "c1570ffcd2ea060e"
+            ]
+        ]
+    },
+    {
+        "id": "1bc27216083c34d2",
+        "type": "mongodb3 in",
+        "z": "4707ecdd1660c47d",
+        "service": "_ext_",
+        "configNode": "266468707cf430d8",
+        "name": "Find Latest Hospital Record",
+        "collection": "hospital_report",
+        "operation": "find.toArray",
+        "x": 520,
+        "y": 360,
+        "wires": [
+            [
+                "f5100390a6e337fd",
+                "e1c6a9c1a6c01920"
+            ]
+        ]
+    },
+    {
+        "id": "c1570ffcd2ea060e",
+        "type": "function",
+        "z": "4707ecdd1660c47d",
+        "name": "准备查询参数",
+        "func": "msg.payload = {\n    $and: [\n        { waitTimeData: { $exists: true } },\n        { updateTime: { $exists: true } },\n        { timestamp: { $exists: true } }\n    ]\n};\n\n// 按timestamp降序排序并只返回1条记录\nmsg.sort = { timestamp: -1 };\nmsg.limit = 1;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 300,
+        "y": 360,
+        "wires": [
+            [
+                "1bc27216083c34d2"
+            ]
+        ]
+    },
+    {
+        "id": "e1c6a9c1a6c01920",
+        "type": "function",
+        "z": "4707ecdd1660c47d",
+        "name": "格式化表格数据",
+        "func": "// 首先将对象转换为数组\nlet dataArray = Object.values(msg.payload);\n\nif (!dataArray || dataArray.length === 0) {\n    msg.payload = {\n        updateTime: \"暂无数据\",\n        waitTimeData: []\n    };\n    return msg;\n}\n\n// 获取最后一条记录\nconst lastRecord = dataArray[dataArray.length - 1];\n\nmsg.payload = {\n    updateTime: lastRecord.updateTime,\n    waitTimeData: lastRecord.waitTimeData\n};\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 760,
+        "y": 360,
+        "wires": [
+            [
+                "6b5e49041eacc587",
+                "fb3f5974f33ba6ad",
+                "02146115422ed284"
+            ]
+        ]
+    },
+    {
+        "id": "6b5e49041eacc587",
+        "type": "ui_template",
+        "z": "4707ecdd1660c47d",
+        "group": "997a17a510acdb3a",
+        "name": "医院等候时间表格",
+        "order": 1,
+        "width": "24",
+        "height": "12",
+        "format": "<div style=\"padding: 20px;\">\n    <style>\n        .hospital-table {\n            width: 100%;\n            border-collapse: collapse;\n            margin-top: 20px;\n            font-family: Arial, sans-serif;\n            background-color: #2c3e50;\n            color: #ecf0f1;\n        }\n        .hospital-table th, .hospital-table td {\n            border: 1px solid #34495e;\n            padding: 12px;\n            text-align: left;\n        }\n        .hospital-table th {\n            background-color: #34495e;\n            color: #fff;\n            font-weight: bold;\n        }\n        .hospital-table tr:nth-child(even) {\n            background-color: #34495e;\n        }\n        .hospital-table tr:nth-child(odd) {\n            background-color: #2c3e50;\n        }\n        .hospital-table tr:hover {\n            background-color: #3498db;\n        }\n        .update-time {\n            margin-bottom: 15px;\n            color: #3498db;\n            font-weight: bold;\n        }\n    </style>\n    \n    <div class=\"update-time\">\n        Last updated: {{msg.payload.updateTime}}\n    </div>\n    \n    <table class=\"hospital-table\">\n        <thead>\n            <tr>\n                <th>Hospital Name</th>\n                <th>Waiting Time</th>\n            </tr>\n        </thead>\n        <tbody>\n            <tr ng-repeat=\"hospital in msg.payload.waitTimeData\">\n                <td>{{hospital.hospName}}</td>\n                <td>{{hospital.waitTime}}</td>\n            </tr>\n        </tbody>\n    </table>\n</div>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 990,
+        "y": 360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "fb3f5974f33ba6ad",
+        "type": "debug",
+        "z": "4707ecdd1660c47d",
+        "name": "格式化表格输出",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 960,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "f5100390a6e337fd",
+        "type": "debug",
+        "z": "4707ecdd1660c47d",
+        "name": "记录输出",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 740,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "02146115422ed284",
+        "type": "function",
+        "z": "4707ecdd1660c47d",
+        "name": "找出等待时间最短医院",
+        "func": "// 第一个函数 (找出等待时间最短医院)\nif (!msg.payload || !msg.payload.waitTimeData) {\n    msg.payload = {\n        shortestWaitHospital: \"No data\",\n        waitTime: \"Unkonwn\"\n    };\n    msg.originalPayload = msg.payload;\n    return msg;\n}\n\nlet hospitals = msg.payload.waitTimeData;\n\n// 找出等待时间最短的医院\nlet shortestWait = hospitals.reduce((min, hospital) => {\n    if (hospital.waitTimeInHours < min.waitTimeInHours) {\n        return hospital;\n    }\n    return min;\n}, hospitals[0]);\n\nmsg.payload = {\n    shortestWaitHospital: shortestWait.hospName,\n    waitTime: shortestWait.waitTime,\n    updateTime: msg.payload.updateTime\n};\n\n// 保存原始数据到 originalPayload\nmsg.originalPayload = msg.payload;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 300,
+        "y": 420,
+        "wires": [
+            [
+                "de3354eac42f1df7",
+                "bc58f8e0e117eb6f",
+                "12c0339bc2ed0834"
+            ]
+        ]
+    },
+    {
+        "id": "de3354eac42f1df7",
+        "type": "function",
+        "z": "4707ecdd1660c47d",
+        "name": "准备Google Maps请求",
+        "func": "const key = \"Please Prepare Your Own Google API Key\"\n\nconst destination = 'The University of Hong Kong';\nconst origin = msg.payload.shortestWaitHospital;\n\nmsg.url = `https://maps.googleapis.com/maps/api/directions/json?origin=${encodeURIComponent(origin)}&destination=${encodeURIComponent(destination)}&mode=driving&language=en-gb&key=${key}`;\n\n// 添加调试输出\nnode.warn(\"Request URL: \" + msg.url);\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 540,
+        "y": 420,
+        "wires": [
+            [
+                "1a41f098965c1540"
+            ]
+        ]
+    },
+    {
+        "id": "bc58f8e0e117eb6f",
+        "type": "debug",
+        "z": "4707ecdd1660c47d",
+        "name": "准备谷歌API请求",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 530,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "6c1c2521765fe563",
+        "type": "debug",
+        "z": "4707ecdd1660c47d",
+        "name": "获取驾车时间",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 760,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "1a41f098965c1540",
+        "type": "http request",
+        "z": "4707ecdd1660c47d",
+        "name": "Get Driving Time",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 290,
+        "y": 520,
+        "wires": [
+            [
+                "12c0339bc2ed0834",
+                "7c88128770357c72"
+            ]
+        ]
+    },
+    {
+        "id": "12c0339bc2ed0834",
+        "type": "function",
+        "z": "4707ecdd1660c47d",
+        "name": "处理驾驶时间结果",
+        "func": "if (msg.payload.status === 'OK' && msg.payload.routes && msg.payload.routes[0]) {\n    const leg = msg.payload.routes[0].legs[0];\n    const previousPayload = msg.originalPayload || {};\n    \n    msg.payload = {\n        shortestWaitHospital: previousPayload.shortestWaitHospital,\n        waitTime: previousPayload.waitTime,\n        updateTime: previousPayload.updateTime,\n        drivingTime: leg.duration.text,\n        distance: leg.distance.text\n    };\n} else {\n    const previousPayload = msg.originalPayload || {};\n    msg.payload = {\n        shortestWaitHospital: previousPayload.shortestWaitHospital,\n        waitTime: previousPayload.waitTime,\n        updateTime: previousPayload.updateTime,\n        drivingTime: 'Unknown',\n        distance: 'Unknown'\n    };\n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 530,
+        "y": 500,
+        "wires": [
+            [
+                "6c1c2521765fe563",
+                "172aeb8a6bc3d5f2"
+            ]
+        ]
+    },
+    {
+        "id": "7c88128770357c72",
+        "type": "debug",
+        "z": "4707ecdd1660c47d",
+        "name": "获取谷歌API",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 510,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "172aeb8a6bc3d5f2",
+        "type": "ui_template",
+        "z": "4707ecdd1660c47d",
+        "group": "997a17a510acdb3a",
+        "name": "驾驶时间信息",
+        "order": 2,
+        "width": "24",
+        "height": "4",
+        "format": "<div style=\"padding: 20px;\">\n    <style>\n        .driving-info-table {\n            width: 100%;\n            border-collapse: collapse;\n            margin-top: 20px;\n            font-family: Arial, sans-serif;\n            background-color: #2c3e50;\n            color: #ecf0f1;\n        }\n        .driving-info-table th, .driving-info-table td {\n            border: 1px solid #34495e;\n            padding: 12px;\n            text-align: left;\n        }\n        .driving-info-table th {\n            background-color: #34495e;\n            color: #fff;\n            font-weight: bold;\n        }\n        .info-header {\n            margin-bottom: 15px;\n            color: #3498db;\n            font-weight: bold;\n        }\n    </style>\n    \n    <div class=\"info-header\">\n        Driving to the Hospital with shortest waiting time\n    </div>\n    \n    <table class=\"driving-info-table\">\n        <thead>\n            <tr>\n                <th>Name of Hospital</th>\n                <th>Waiting Time</th>\n                <th>Distance from HKU</th>\n                <th>Estimated driving time</th>\n            </tr>\n        </thead>\n        <tbody>\n            <tr>\n                <td>{{msg.payload.shortestWaitHospital}}</td>\n                <td>{{msg.payload.waitTime}}</td>\n                <td>{{msg.payload.distance}}</td>\n                <td>{{msg.payload.drivingTime}}</td>\n            </tr>\n        </tbody>\n    </table>\n</div>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 760,
+        "y": 520,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7af6bb8987ac999b",
+        "type": "ui_text",
+        "z": "4707ecdd1660c47d",
+        "group": "997a17a510acdb3a",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "name": "URL",
+        "label": "Website",
+        "format": "https://data.gov.hk/sc-data/dataset/hospital-hadata-ae-waiting-time/resource/52172761-f5bd-45b2-ad1e-985736febc16",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 690,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "e8d4e4800c3171c0",
+        "type": "ui_text",
+        "z": "4707ecdd1660c47d",
+        "group": "997a17a510acdb3a",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "Author",
+        "label": "Author",
+        "format": "Jiang Feiyu",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 690,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "367f4f25b0a4a09f",
+        "type": "inject",
+        "z": "b9ea2bdf7f14dc1b",
+        "name": "Fetch Data",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "300",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "Timer",
+        "payload": "",
+        "payloadType": "date",
+        "x": 330,
+        "y": 160,
+        "wires": [
+            [
+                "37b34b8d36a27b10"
+            ]
+        ]
+    },
+    {
+        "id": "b12123dab1c76424",
+        "type": "http request",
+        "z": "b9ea2bdf7f14dc1b",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "https://data.weather.gov.hk/weatherAPI/hko_data/regional-weather/latest_1min_temperature.csv",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 760,
+        "y": 220,
+        "wires": [
+            [
+                "ccfcf6730f4d921f"
+            ]
+        ]
+    },
+    {
+        "id": "37b97e08f8757029",
+        "type": "mongodb3 in",
+        "z": "b9ea2bdf7f14dc1b",
+        "service": "_ext_",
+        "configNode": "266468707cf430d8",
+        "name": "Insert Record",
+        "collection": "Temperature",
+        "operation": "insert",
+        "x": 560,
+        "y": 380,
+        "wires": [
+            [
+                "3426cabb68c06425"
+            ]
+        ]
+    },
+    {
+        "id": "37b34b8d36a27b10",
+        "type": "function",
+        "z": "b9ea2bdf7f14dc1b",
+        "name": "Retrieve Last Record Query",
+        "func": "msg.payload = [\n    {\n        \"$query\": {}\n    },\n    {\n        \"sort\": {\n            \"_id\": -1\n        }\n    }\n]\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 400,
+        "y": 220,
+        "wires": [
+            [
+                "afd05394c3da111b"
+            ]
+        ]
+    },
+    {
+        "id": "afd05394c3da111b",
+        "type": "mongodb3 in",
+        "z": "b9ea2bdf7f14dc1b",
+        "service": "_ext_",
+        "configNode": "266468707cf430d8",
+        "name": "Find Last Record",
+        "collection": "Temperature",
+        "operation": "findOne",
+        "x": 570,
+        "y": 160,
+        "wires": [
+            [
+                "b12123dab1c76424"
+            ]
+        ]
+    },
+    {
+        "id": "156b3581c86d7a36",
+        "type": "function",
+        "z": "b9ea2bdf7f14dc1b",
+        "name": "New Record Available",
+        "func": "let data = msg.payload;\n\nlet newData = {\n    updateTime: \"\",\n    temperature: {\n        data: []\n    }\n};\n\ndata.forEach((item) => {\n    let dateTimeNumber = item['Date time'];\n    let year = parseInt(dateTimeNumber.toString().slice(0, 4));\n    let month = parseInt(dateTimeNumber.toString().slice(4, 6));\n    let day = parseInt(dateTimeNumber.toString().slice(6, 8));\n    let hour = parseInt(dateTimeNumber.toString().slice(8, 10));\n    let minute = parseInt(dateTimeNumber.toString().slice(10));\n\n    let isoDatetime = new Date(year, month - 1, day, hour, minute, 0).toISOString();\n    let newItem = {\n        ...item,\n        'Date time': isoDatetime\n    };\n    newData.temperature.data.push(newItem);\n});\n\nvar lastTime;\n\nif(newData.temperature.data && newData.temperature.data[0] && newData.temperature.data[0][\"Date time\"]) {\n    try {\n        var dateTime = new Date(newData.temperature.data[0][\"Date time\"]);\n        if (isNaN(dateTime.getTime())) {\n            node.warn(\"Invalid Date time format: \" + newData.temperature.data[0][\"Date time\"]);\n            flow.set('timestamp', \"\");\n        } else {\n            lastTime = dateTime.toISOString();\n            flow.set('timestamp', lastTime);\n        }\n    } catch (e) {\n        node.warn(\"Error processing Date time: \" + e.massage);\n        flow.set('timestamp', \"\");\n    }\n} else {\n    flow.set('timestamp', \"\");\n    lastTime = null;\n}\n\nvar updateTime;\n\nif (newData.temperature.data && newData.temperature.data[0] && newData.temperature.data[0]['Date time']) {\n    updateTime = new Date(newData.temperature.data[0]['Date time']);\n    newData.updateTime = updateTime.toISOString();\n} else {\n    node.warn(\"Invalid timestamp format in msg.payload\");\n    updateTime = null;\n}\n\nnode.warn(`Last Time: ${lastTime}`);\nnode.warn(`Update Time: ${newData.updateTime}`);\n\nif (!lastTime || updateTime >= new Date(lastTime)) {\n    msg.needUpdate = true;\n    if (updateTime) {\n        flow.set('timestamp', updateTime.toISOString());\n    }\n    node.warn(\"Data updated and stored\");\n} else {\n    msg.needUpdate = false;\n    node.warn(\"No update needed\");\n}\nmsg.payload = newData;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 760,
+        "y": 280,
+        "wires": [
+            [
+                "d2cdc4237ac990b7"
+            ]
+        ]
+    },
+    {
+        "id": "d2cdc4237ac990b7",
+        "type": "switch",
+        "z": "b9ea2bdf7f14dc1b",
+        "name": "Need Update",
+        "property": "needUpdate",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "false",
+                "vt": "jsonata"
+            },
+            {
+                "t": "eq",
+                "v": "true",
+                "vt": "jsonata"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 320,
+        "y": 360,
+        "wires": [
+            [
+                "0126cfe522dabe53"
+            ],
+            [
+                "37b97e08f8757029"
+            ]
+        ]
+    },
+    {
+        "id": "0126cfe522dabe53",
+        "type": "function",
+        "z": "b9ea2bdf7f14dc1b",
+        "name": "No Update",
+        "func": "msg.payload = \"No Update\"\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 550,
+        "y": 340,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3426cabb68c06425",
+        "type": "debug",
+        "z": "b9ea2bdf7f14dc1b",
+        "name": "insert debug",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 830,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "d0a782247bd4d871",
+        "type": "inject",
+        "z": "b9ea2bdf7f14dc1b",
+        "name": "Update Chart",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "300",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "Timer",
+        "payload": "",
+        "payloadType": "date",
+        "x": 340,
+        "y": 460,
+        "wires": [
+            [
+                "4ae57c597653ac40"
+            ]
+        ]
+    },
+    {
+        "id": "4ae57c597653ac40",
+        "type": "function",
+        "z": "b9ea2bdf7f14dc1b",
+        "name": "Construct Date Range",
+        "func": "var date = new Date();\nvar day = date.getDate();\nvar month = date.getMonth();\nvar year = date.getFullYear();\nvar hour = date.getHours();\nvar minutes = date.getMinutes();\nvar seconds = date.getSeconds();\nvar st, et;\nvar minMilliSeconds = 60 * 1000;\nvar hourMilliSeconds = 60 * minMilliSeconds;\nvar dayMilliSeconds = 24 * hourMilliSeconds;\nvar duration = 1 * dayMilliSeconds;\n\net = date;\net.setSeconds(seconds / 10 * 10);\nst = new Date();\nst.setTime(et.getTime() - duration);\n\nmsg.startTime = st;\nmsg.endTime = et;\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 400,
+        "y": 520,
+        "wires": [
+            [
+                "95514a7689ef8d49"
+            ]
+        ]
+    },
+    {
+        "id": "95514a7689ef8d49",
+        "type": "function",
+        "z": "b9ea2bdf7f14dc1b",
+        "name": "Construct Queries",
+        "func": "var st = msg.startTime; // 开始时间（UTC）\nvar et = msg.endTime;   // 结束时间（UTC）\n\n// 获取东八区时间偏移量（+8小时对应的毫秒数）\nvar offset = 8 * 60 * 60 * 1000;\n\n// 将开始时间和结束时间转换为东八区时间\nvar stLocal = new Date(st.getTime() + offset);\nvar etLocal = new Date(et.getTime() + offset);\n\n// 将东八区时间转换为 ISO 8601 字符串格式，但减去偏移量以保证查询正确\nvar ststr = stLocal.toISOString();\nvar etstr = etLocal.toISOString();\n\n// 构造查询条件\nvar query = { 'updateTime': { $gt: ststr, $lt: etstr } };\n\n// 设置调试输出\nmsg.payload = query;\nmsg.ststr = ststr;\nmsg.etstr = etstr;\n\nnode.warn(`Query Start Time (Local ISO): ${msg.ststr}`);\nnode.warn(`Query End Time (Local ISO): ${msg.etstr}`);\nnode.warn(`Constructed Query: ${JSON.stringify(msg.payload)}`);\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 610,
+        "y": 460,
+        "wires": [
+            [
+                "289430b188327c20"
+            ]
+        ]
+    },
+    {
+        "id": "289430b188327c20",
+        "type": "mongodb3 in",
+        "z": "b9ea2bdf7f14dc1b",
+        "service": "_ext_",
+        "configNode": "266468707cf430d8",
+        "name": "Retrive Records",
+        "collection": "Temperature",
+        "operation": "find.toArray",
+        "x": 700,
+        "y": 520,
+        "wires": [
+            [
+                "6cfacc8eb6fdd4e2"
+            ]
+        ]
+    },
+    {
+        "id": "6cfacc8eb6fdd4e2",
+        "type": "function",
+        "z": "b9ea2bdf7f14dc1b",
+        "name": "Format Chart Data",
+        "func": "var weatherDataArray = Object.values(msg.payload);\n\nvar dataCount = weatherDataArray.length;\n\nvar i, j;\n\nvar placeDataArray = {};\n\nfor (j = 0; j < dataCount; j++) {\n    for (i = 0; i < weatherDataArray[j].temperature.data.length; i++) {\n        var place = weatherDataArray[j].temperature.data[i]['Automatic Weather Station'];\n        var dateTime = weatherDataArray[j].temperature.data[i]['Date time'];\n        var airTemperature = weatherDataArray[j].temperature.data[i]['Air Temperature(degree Celsius)'];\n        if (!placeDataArray.hasOwnProperty(place)) {\n            placeDataArray[place] = [];\n        }\n        placeDataArray[place].push({\n            \"x\": new Date(dateTime),\n            \"y\": airTemperature\n        });\n    }\n}\n\nvar chartData = [{\n    \"series\": Object.keys(placeDataArray),\n    \"data\": Object.values(placeDataArray),\n    \"labels\": \"\"\n    }];\n\nmsg.payload = chartData;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 350,
+        "y": 580,
+        "wires": [
+            [
+                "5843c22ae23e0223"
+            ]
+        ]
+    },
+    {
+        "id": "5843c22ae23e0223",
+        "type": "ui_chart",
+        "z": "b9ea2bdf7f14dc1b",
+        "name": "Chart",
+        "group": "6d89443dc96fd58c",
+        "order": 0,
+        "width": "0",
+        "height": "0",
+        "label": "Temperature Across 39 HK places",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": true,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "24",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": true,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 570,
+        "y": 580,
+        "wires": [
+            [
+                "ee4f7df30a9e5dd5"
+            ]
+        ]
+    },
+    {
+        "id": "ee4f7df30a9e5dd5",
+        "type": "debug",
+        "z": "b9ea2bdf7f14dc1b",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 780,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "ccfcf6730f4d921f",
+        "type": "csv to json ext",
+        "z": "b9ea2bdf7f14dc1b",
+        "name": "Temperature",
+        "version": "0.1",
+        "source": "payload",
+        "delimiter": ",",
+        "quote": "\"",
+        "escape": "\"",
+        "ignoreEmpty": false,
+        "checkType": false,
+        "trim": false,
+        "noheader": false,
+        "includeColumns": "",
+        "headers": "\"Date time\",\"Automatic Weather Station\",\"Air Temperature(degree Celsius)\"",
+        "debug": false,
+        "x": 470,
+        "y": 280,
+        "wires": [
+            [
+                "156b3581c86d7a36"
+            ]
+        ]
+    },
+    {
+        "id": "91a213cd08db5151",
+        "type": "ui_text",
+        "z": "b9ea2bdf7f14dc1b",
+        "group": "6d89443dc96fd58c",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "Author",
+        "label": "Author",
+        "format": "Cao Shuochen",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 590,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "c764cd43c33ec455",
+        "type": "ui_text",
+        "z": "b9ea2bdf7f14dc1b",
+        "group": "6d89443dc96fd58c",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "name": "URL",
+        "label": "Website",
+        "format": "https://data.gov.hk/sc-data/dataset/hk-hko-rss-latest-one-minute-mean-air-temp",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 590,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "5bf72975f34ab2a9",
+        "type": "ui_text",
+        "z": "b9ea2bdf7f14dc1b",
+        "group": "6d89443dc96fd58c",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "Extra Palette",
+        "label": "Extra Palette",
+        "format": "node-red-contrib-csvtojson",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 610,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "95d077cde648dca9",
+        "type": "inject",
+        "z": "2905f396395f953e",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "300",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "Timer",
+        "payload": "",
+        "payloadType": "date",
+        "x": 380,
+        "y": 140,
+        "wires": [
+            [
+                "ca94a6be457971be"
+            ]
+        ]
+    },
+    {
+        "id": "ca94a6be457971be",
+        "type": "function",
+        "z": "2905f396395f953e",
+        "name": "Retrieve Last Record Query",
+        "func": "msg.payload = [\n    {\n        \"$query\": {}\n    },\n    {\n        \"sort\": {\n            \"_id\": -1\n        }\n    }\n]\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 420,
+        "y": 200,
+        "wires": [
+            [
+                "4de06db7a226af7f"
+            ]
+        ]
+    },
+    {
+        "id": "4de06db7a226af7f",
+        "type": "mongodb3 in",
+        "z": "2905f396395f953e",
+        "service": "_ext_",
+        "configNode": "266468707cf430d8",
+        "name": "",
+        "collection": "rain",
+        "operation": "findOne",
+        "x": 600,
+        "y": 140,
+        "wires": [
+            [
+                "94552a9f43689e09"
+            ]
+        ]
+    },
+    {
+        "id": "94552a9f43689e09",
+        "type": "function",
+        "z": "2905f396395f953e",
+        "name": "Get Last updateTime",
+        "func": "if(msg.payload.hasOwnProperty('updateTime')) {\n    flow.set('lastUpdateTime', msg.payload.updateTime);\n} else {\n    flow.set('lastUpdateTime', \"\");\n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 700,
+        "y": 200,
+        "wires": [
+            [
+                "9cf32737568767be"
+            ]
+        ]
+    },
+    {
+        "id": "9cf32737568767be",
+        "type": "http request",
+        "z": "2905f396395f953e",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "https://data.weather.gov.hk/weatherAPI/opendata/hourlyRainfall.php?lang=en",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 360,
+        "y": 260,
+        "wires": [
+            [
+                "de1c0ae243aed2a0"
+            ]
+        ]
+    },
+    {
+        "id": "de1c0ae243aed2a0",
+        "type": "json",
+        "z": "2905f396395f953e",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 530,
+        "y": 260,
+        "wires": [
+            [
+                "99cd267fe9d4aa89"
+            ]
+        ]
+    },
+    {
+        "id": "99cd267fe9d4aa89",
+        "type": "function",
+        "z": "2905f396395f953e",
+        "name": "New Record Available",
+        "func": "var lastUpdateTime = flow.get('lastUpdateTime');\n\nvar updateTimeTemp = new Date(msg.payload.obsTime);\nvar updateTime = updateTimeTemp.toISOString();\n\nif (updateTime > lastUpdateTime) {\n    msg.needUpdate = true;\n    msg.payload.updateTime = updateTime;\n} else {\n    msg.needUpdate = false;\n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 740,
+        "y": 260,
+        "wires": [
+            [
+                "3498046abcb46beb"
+            ]
+        ]
+    },
+    {
+        "id": "3498046abcb46beb",
+        "type": "switch",
+        "z": "2905f396395f953e",
+        "name": "Need Update",
+        "property": "needUpdate",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "false",
+                "vt": "jsonata"
+            },
+            {
+                "t": "eq",
+                "v": "true",
+                "vt": "jsonata"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 370,
+        "y": 320,
+        "wires": [
+            [
+                "339cb66a090881be"
+            ],
+            [
+                "286ed1c5e4adf20c"
+            ]
+        ]
+    },
+    {
+        "id": "339cb66a090881be",
+        "type": "function",
+        "z": "2905f396395f953e",
+        "name": "No Update",
+        "func": "msg.payload = \"No Update\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 550,
+        "y": 320,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "286ed1c5e4adf20c",
+        "type": "mongodb3 in",
+        "z": "2905f396395f953e",
+        "service": "_ext_",
+        "configNode": "266468707cf430d8",
+        "name": "",
+        "collection": "rain",
+        "operation": "insert",
+        "x": 550,
+        "y": 380,
+        "wires": [
+            [
+                "abbbb6a6e301cadc"
+            ]
+        ]
+    },
+    {
+        "id": "abbbb6a6e301cadc",
+        "type": "debug",
+        "z": "2905f396395f953e",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 730,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "7c4ea4b081be6d40",
+        "type": "mongodb3 in",
+        "z": "2905f396395f953e",
+        "service": "_ext_",
+        "configNode": "266468707cf430d8",
+        "name": "Retrieve Records",
+        "collection": "rain",
+        "operation": "find.toArray",
+        "x": 730,
+        "y": 540,
+        "wires": [
+            [
+                "f9ea8b96502405af"
+            ]
+        ]
+    },
+    {
+        "id": "21a664c18ad210b2",
+        "type": "function",
+        "z": "2905f396395f953e",
+        "name": "Construct Date Range",
+        "func": "var date = new Date();\nvar day = date.getDate() ;\nvar month = date.getMonth();\nvar year = date.getFullYear();\nvar hour = date.getHours();\nvar minutes = date.getMinutes();\nvar seconds = date.getSeconds();\nvar st, et ;\nvar minMilliSeconds = 60 * 1000;\nvar hourMilliSeconds = 60 * minMilliSeconds;\nvar dayMilliSeconds = 24 * hourMilliSeconds;\nvar duration = 1 * dayMilliSeconds;\n\net = date ;\net.setSeconds(seconds/10*10);\nst = new Date() ;\nst.setTime(et.getTime() - duration);\n\nmsg.startTime = st ;\nmsg.endTime = et ;\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 456,
+        "y": 542,
+        "wires": [
+            [
+                "3e17f38e8be2f525"
+            ]
+        ]
+    },
+    {
+        "id": "3e17f38e8be2f525",
+        "type": "function",
+        "z": "2905f396395f953e",
+        "name": "Construct Queries",
+        "func": "var st = msg.startTime;\nvar et = msg.endTime;\n\nvar offset = 8 * 60 * 60 * 1000;\n\n// 将开始时间和结束时间转换为东八区时间\nvar stts = (st.getTime() + offset);\nvar etts = (et.getTime() + offset);\n\n// 将东八区时间转换为日期对象，再转换为ISO 8601字符串格式\nvar ststr = new Date(stts).toISOString();\nvar etstr = new Date(etts).toISOString();\n\nvar query = { 'updateTime': { $gt: ststr, $lt: etstr} };\n\nmsg.payload = query;\nmsg.ststr = ststr ;\nmsg.etstr = etstr ;\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 579,
+        "y": 478,
+        "wires": [
+            [
+                "7c4ea4b081be6d40"
+            ]
+        ]
+    },
+    {
+        "id": "f9ea8b96502405af",
+        "type": "function",
+        "z": "2905f396395f953e",
+        "name": "Format Chart Data",
+        "func": "var weatherDataArray = Object.values(msg.payload);\n\nvar dataCount = weatherDataArray.length;\n\nvar i, j;\n\nvar placeDataArray = {};\n\n// Iterate over each weather data entry\nfor (j = 0; j < dataCount; j++) {\n    // Check if the temperature and data properties exist\n    if (weatherDataArray[j].hourlyRainfall) {\n        for (i = 0; i < weatherDataArray[j].hourlyRainfall.length; i++) {\n            var place = weatherDataArray[j].hourlyRainfall[i].automaticWeatherStation;\n            var value = weatherDataArray[j].hourlyRainfall[i].value;\n            var recordTime = weatherDataArray[j].obsTime;\n\n            if (!placeDataArray.hasOwnProperty(place)) {\n                placeDataArray[place] = [];\n            }\n            placeDataArray[place].push({ \"x\": new Date(recordTime), \"y\": value });\n        }\n    }\n}\n\nvar chartData = [{ \"series\": Object.keys(placeDataArray), \"data\": Object.values(placeDataArray), \"labels\": \"\" }];\n\nmsg.payload = chartData;\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 453.5,
+        "y": 607,
+        "wires": [
+            [
+                "6fd11a7aa8d0338d"
+            ]
+        ]
+    },
+    {
+        "id": "6fd11a7aa8d0338d",
+        "type": "ui_chart",
+        "z": "2905f396395f953e",
+        "name": "",
+        "group": "d833fed9fc0ee58b",
+        "order": 1,
+        "width": "0",
+        "height": "0",
+        "label": "HK 23 Places Hourly Rainfall (mm)",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "24",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 779,
+        "y": 608,
+        "wires": [
+            [
+                "66d7e4724ce537fc"
+            ]
+        ]
+    },
+    {
+        "id": "11a0e7cd0747c641",
+        "type": "inject",
+        "z": "2905f396395f953e",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "300",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "0.1",
+        "topic": "Timer",
+        "payload": "",
+        "payloadType": "date",
+        "x": 345,
+        "y": 481,
+        "wires": [
+            [
+                "21a664c18ad210b2"
+            ]
+        ]
+    },
+    {
+        "id": "66d7e4724ce537fc",
+        "type": "debug",
+        "z": "2905f396395f953e",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 779,
+        "y": 664,
+        "wires": []
+    },
+    {
+        "id": "be3429ec9d130bf7",
+        "type": "ui_text",
+        "z": "2905f396395f953e",
+        "group": "d833fed9fc0ee58b",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "Author",
+        "label": "Author",
+        "format": "Cao Shuochen",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 570,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "9cd67820a89e0a6c",
+        "type": "ui_text",
+        "z": "2905f396395f953e",
+        "group": "d833fed9fc0ee58b",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "name": "URL",
+        "label": "Website",
+        "format": "https://data.gov.hk/sc-data/dataset/hk-hko-rss-rainfall-in-the-past-hour",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 570,
+        "y": 720,
+        "wires": []
+    }
+]
